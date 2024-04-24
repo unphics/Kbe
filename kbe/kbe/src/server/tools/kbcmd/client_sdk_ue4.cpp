@@ -118,7 +118,7 @@ std::string ClientSDKUE4::typeToType(const std::string& type)
 	}
 	else if (type == "VECTOR3")
 	{
-		return "FVector";
+		return "FVector3f";
 	}
 	else if (type == "VECTOR4")
 	{
@@ -131,7 +131,7 @@ std::string ClientSDKUE4::typeToType(const std::string& type)
 	}
 	else if (type == "VECTOR3")
 	{
-		return "FVector";
+		return "FVector3f";
 	}
 	else if (type == "VECTOR4")
 	{
@@ -1725,7 +1725,7 @@ bool ClientSDKUE4::writeEntityDefsModuleInitScript_PropertyDescr(ScriptDefModule
 	{
 		std::string readName = typeToType(datatype2nativetype(typeID));
 
-		if (readName == "FVector2D" || readName == "FVector" || readName == "FVector4")
+		if (readName == "FVector2D" || readName == "FVector3f" || readName == "FVector4")
 		{
 			fileBody() += fmt::format("\tKBVar* p{}_{}_defval = new KBVar({}());\n", pScriptDefModule->getName(),
 				pDescr->getName(), readName);
@@ -3013,9 +3013,9 @@ bool ClientSDKUE4::writeEntityProcessMessagesMethod(ScriptDefModule* pEntityScri
 				std::string("direction") == pPropertyDescription->getName())
 			{
 #ifdef CLIENT_NO_FLOAT
-				typestr = "FVector";
+				typestr = "FVector3f";
 #else
-				typestr = "FVector";
+				typestr = "FVector3f";
 #endif
 			}
 			else
@@ -3123,9 +3123,9 @@ bool ClientSDKUE4::writeEntityProcessMessagesMethod(ScriptDefModule* pEntityScri
 			std::string("direction") == pPropertyDescription->getName())
 		{
 #ifdef CLIENT_NO_FLOAT
-			typestr = "FVector";
+			typestr = "FVector3f";
 #else
-			typestr = "FVector";
+			typestr = "FVector3f";
 #endif
 		}
 		else
@@ -3459,7 +3459,7 @@ bool ClientSDKUE4::writeEntityProperty_VECTOR3(ScriptDefModule* pEntityScriptDef
 
 	std::string name = pPropertyDescription->getName();
 	name[0] = std::toupper(name[0]);
-	fileBody() += fmt::format("\tvirtual void on{}Changed(const FVector& oldValue) {{}}\n", name);
+	fileBody() += fmt::format("\tvirtual void on{}Changed(const FVector3f& oldValue) {{}}\n", name);
 	return true;
 }
 
