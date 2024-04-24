@@ -290,7 +290,7 @@ Thumbs.db
 /kbe/src/lib/python/config.status
 /kbe/src/lib/python/pybuilddir.txt
 /kbe/src/lib/python/pyconfig.h
-/kbe/src/lib/python/python
+# /kbe/src/lib/python/python
 /kbe/src/lib/python/python-config
 /kbe/src/lib/python/python-config.py
 /kbe/src/lib/python/python-gdb.py
@@ -1430,7 +1430,7 @@ balls_server_assets/_tmp/Unity/RoomBase.cs
 balls_server_assets/_tmp/Unity/ScriptModule.cs
 balls_server_assets/_tmp/Unity/ServerErrorDescrs.cs
 balls_server_assets/_tmp/Unity/SmashBase.cs
-kbe/src/lib/entitydef/py_entitydef.cpp
+# kbe/src/lib/entitydef/py_entitydef.cpp
 server_assets/_watchlog.py
 server_assets/gensdk.bat
 server_assets/guiconsole.bat
