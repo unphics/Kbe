@@ -57,9 +57,56 @@
 		</account_system>
 		
 		<databaseInterfaces>
+<!-- 数据库接口名称 （可以定义多个不同的接口，但至少存在一个default）
+				（Database interface name)
+			-->
 			<default>
-				<!-- <host> localhost </host> -->
-				<!-- <databaseName> kbe </databaseName> -->
+				<!-- 如果为true，则为纯净的数据库，引擎不创建实体表 
+					（If true is pure database, engine does not create the entity table)
+				-->
+				<pure> false </pure>
+
+				<!-- 数据库类型 （mysql、redis）
+					（Database type(mysql, redis))
+				-->
+				<type> mysql </type>											<!-- Type: String -->
+
+				<!-- 数据库地址 
+					（Database address)
+				-->
+				<host> localhost </host>										<!-- Type: String -->
+				<port> 0 </port>												<!-- Type: Integer -->
+
+				<!-- 数据库账号验证 
+					（Database auth)
+				-->
+				<auth>  
+					<username> kbeuser </username>									<!-- Type: String -->
+					<password> 123456 </password>							<!-- Type: String -->
+					
+					<!-- 为true则表示password是加密(rsa)的, 可防止明文配置 
+						(is true, password is RSA)
+					-->
+					<encrypt> true </encrypt>
+				</auth>
+
+				<!-- 数据库名称 
+					(Database name)
+				-->
+				<databaseName> kbecourse </databaseName> 								<!-- Type: String -->
+				
+				<!-- 数据库允许的连接数 
+					(Number of connections allowed by the database)
+				-->
+				<numConnections> 5 </numConnections>							<!-- Type: Integer -->
+				
+				<!-- 字符编码类型 
+					(Character encoding type)
+				-->
+				<unicodeString>
+					<characterSet> utf8mb4 </characterSet> 						<!-- Type: String -->
+					<collation> utf8mb4_bin </collation> 						<!-- Type: String -->
+				</unicodeString>
 			</default>
 		</databaseInterfaces>
 	</dbmgr>

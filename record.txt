@@ -7,3 +7,16 @@ mysql:
     数据库名称: kbe
     用户名: kbeser
     密码: 123456
+
+mysql创建新账户与赋权操作:
+    create user root@'%' identified by '123456';
+    grant all privileges on *.* to root@'%' with grant option;
+
+mysql为course_asset操作:
+    create database kbecourse;
+    use mysql;
+    delete from user where user='';
+    flush privileges;
+    grant all privileges on kbecourse.* to kbeuser@'%' with grant option;
+    grant select,insert,update,delete,create,drop on kbecourse.* to kbeuser@'%' with grant option;
+    flush privileges;
