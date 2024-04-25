@@ -9,14 +9,25 @@ mysql:
     密码: 123456
 
 mysql创建新账户与赋权操作:
-    create user root@'%' identified by '123456';
-    grant all privileges on *.* to root@'%' with grant option;
+    create user kbeuser@localhost identified by '123456';
+//  grant all privileges on *.* to kbeuser@localhost with grant option;
 
 mysql为course_asset操作:
     create database kbecourse;
     use mysql;
     delete from user where user='';
     flush privileges;
-    grant all privileges on kbecourse.* to kbeuser@'%' with grant option;
-    grant select,insert,update,delete,create,drop on kbecourse.* to kbeuser@'%' with grant option;
+    grant all privileges on kbecourse.* to kbeuser@localhost with grant option;
+    grant select,insert,update,delete,create,drop on kbecourse.* to kbeuser@localhost with grant option;
+    flush privileges;
+
+mysql ssl 问题:
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+    flush privileges;
+    将mysql data目录的my.ini下增加
+        # disable_ssl
+        skip-ssl
+        ssl=0
+    重启mysql服务
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
     flush privileges;
