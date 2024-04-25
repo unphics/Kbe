@@ -6,5 +6,5 @@
 	-->
 
 	<!-- <Avatar/> -->
-	<Account hasClient="true"></Account><!-- <Account hasCell="true" hasBase="true" hasClient="true"></Account> -->
+	<ExAccount hasClient="true"></ExAccount><!-- <Account hasCell="true" hasBase="true" hasClient="true"></Account> -->
 </root>

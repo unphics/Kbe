@@ -13,7 +13,8 @@ public class Kbe : ModuleRules
 			"CoreUObject",
 			"Engine",
 			"InputCore",
-			"KBEnginePlugins"
+			"KBEnginePlugins",
+			"UMG"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });

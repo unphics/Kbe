@@ -7,7 +7,8 @@
 #include "KBVar.h"
 #include "Entity.h"
 
-#include "Scripts/Account.h"
+// #include "Scripts/ExAccount.h"
+#include "ExAccount.h"
 
 namespace KBEngine
 {
@@ -93,7 +94,7 @@ Entity* EntityDef::createEntity(int utype)
 	switch(utype)
 	{
 		case 1:
-			pEntity = new Account();
+			pEntity = new ExAccount();
 			break;
 		default:
 			SCREEN_ERROR_MSG("EntityDef::createEntity() : entity(%d) not found!", utype);
@@ -105,53 +106,53 @@ Entity* EntityDef::createEntity(int utype)
 
 void EntityDef::initScriptModules()
 {
-	ScriptModule* pAccountModule = new ScriptModule("Account", 1);
-	EntityDef::moduledefs.Add(TEXT("Account"), pAccountModule);
-	EntityDef::idmoduledefs.Add(1, pAccountModule);
+	ScriptModule* pExAccountModule = new ScriptModule("ExAccount", 1);
+	EntityDef::moduledefs.Add(TEXT("ExAccount"), pExAccountModule);
+	EntityDef::idmoduledefs.Add(1, pExAccountModule);
 
-	Property* pAccount_position = new Property();
-	pAccount_position->name = TEXT("position");
-	pAccount_position->properUtype = 40000;
-	pAccount_position->properFlags = 4;
-	pAccount_position->aliasID = 1;
-	KBVar* pAccount_position_defval = new KBVar(FVector3f());
-	pAccount_position->pDefaultVal = pAccount_position_defval;
-	pAccountModule->propertys.Add(TEXT("position"), pAccount_position); 
+	Property* pExAccount_position = new Property();
+	pExAccount_position->name = TEXT("position");
+	pExAccount_position->properUtype = 40000;
+	pExAccount_position->properFlags = 4;
+	pExAccount_position->aliasID = 1;
+	KBVar* pExAccount_position_defval = new KBVar(FVector3f());
+	pExAccount_position->pDefaultVal = pExAccount_position_defval;
+	pExAccountModule->propertys.Add(TEXT("position"), pExAccount_position); 
 
-	pAccountModule->usePropertyDescrAlias = true;
-	pAccountModule->idpropertys.Add((uint16)pAccount_position->aliasID, pAccount_position);
+	pExAccountModule->usePropertyDescrAlias = true;
+	pExAccountModule->idpropertys.Add((uint16)pExAccount_position->aliasID, pExAccount_position);
 
-	//DEBUG_MSG("EntityDef::initScriptModules: add(Account), property(position / 40000).");
+	//DEBUG_MSG("EntityDef::initScriptModules: add(ExAccount), property(position / 40000).");
 
-	Property* pAccount_direction = new Property();
-	pAccount_direction->name = TEXT("direction");
-	pAccount_direction->properUtype = 40001;
-	pAccount_direction->properFlags = 4;
-	pAccount_direction->aliasID = 2;
-	KBVar* pAccount_direction_defval = new KBVar(FVector3f());
-	pAccount_direction->pDefaultVal = pAccount_direction_defval;
-	pAccountModule->propertys.Add(TEXT("direction"), pAccount_direction); 
+	Property* pExAccount_direction = new Property();
+	pExAccount_direction->name = TEXT("direction");
+	pExAccount_direction->properUtype = 40001;
+	pExAccount_direction->properFlags = 4;
+	pExAccount_direction->aliasID = 2;
+	KBVar* pExAccount_direction_defval = new KBVar(FVector3f());
+	pExAccount_direction->pDefaultVal = pExAccount_direction_defval;
+	pExAccountModule->propertys.Add(TEXT("direction"), pExAccount_direction); 
 
-	pAccountModule->usePropertyDescrAlias = true;
-	pAccountModule->idpropertys.Add((uint16)pAccount_direction->aliasID, pAccount_direction);
+	pExAccountModule->usePropertyDescrAlias = true;
+	pExAccountModule->idpropertys.Add((uint16)pExAccount_direction->aliasID, pExAccount_direction);
 
-	//DEBUG_MSG("EntityDef::initScriptModules: add(Account), property(direction / 40001).");
+	//DEBUG_MSG("EntityDef::initScriptModules: add(ExAccount), property(direction / 40001).");
 
-	Property* pAccount_spaceID = new Property();
-	pAccount_spaceID->name = TEXT("spaceID");
-	pAccount_spaceID->properUtype = 40002;
-	pAccount_spaceID->properFlags = 16;
-	pAccount_spaceID->aliasID = 3;
-	KBVar* pAccount_spaceID_defval = new KBVar((uint32)FCString::Atoi64(TEXT("")));
-	pAccount_spaceID->pDefaultVal = pAccount_spaceID_defval;
-	pAccountModule->propertys.Add(TEXT("spaceID"), pAccount_spaceID); 
+	Property* pExAccount_spaceID = new Property();
+	pExAccount_spaceID->name = TEXT("spaceID");
+	pExAccount_spaceID->properUtype = 40002;
+	pExAccount_spaceID->properFlags = 16;
+	pExAccount_spaceID->aliasID = 3;
+	KBVar* pExAccount_spaceID_defval = new KBVar((uint32)FCString::Atoi64(TEXT("")));
+	pExAccount_spaceID->pDefaultVal = pExAccount_spaceID_defval;
+	pExAccountModule->propertys.Add(TEXT("spaceID"), pExAccount_spaceID); 
 
-	pAccountModule->usePropertyDescrAlias = true;
-	pAccountModule->idpropertys.Add((uint16)pAccount_spaceID->aliasID, pAccount_spaceID);
+	pExAccountModule->usePropertyDescrAlias = true;
+	pExAccountModule->idpropertys.Add((uint16)pExAccount_spaceID->aliasID, pExAccount_spaceID);
 
-	//DEBUG_MSG("EntityDef::initScriptModules: add(Account), property(spaceID / 40002).");
+	//DEBUG_MSG("EntityDef::initScriptModules: add(ExAccount), property(spaceID / 40002).");
 
-	pAccountModule->useMethodDescrAlias = true;
+	pExAccountModule->useMethodDescrAlias = true;
 }
 
 void EntityDef::initDefTypes()

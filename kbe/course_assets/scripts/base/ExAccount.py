@@ -2,7 +2,7 @@
 import KBEngine
 from KBEDebug import *
 
-class Account(KBEngine.Proxy):
+class ExAccount(KBEngine.Proxy):
 	def __init__(self):
 		KBEngine.Proxy.__init__(self)
 		

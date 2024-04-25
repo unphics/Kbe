@@ -3,6 +3,7 @@
 *.vs
 *.sln
 *.vsconfig
+*.idea
 
 # 忽略当前目录的.bat文件
 # /*.bat

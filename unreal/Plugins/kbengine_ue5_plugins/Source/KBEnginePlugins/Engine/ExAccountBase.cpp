@@ -1,4 +1,4 @@
-#include "AccountBase.h"
+#include "ExAccountBase.h"
 #include "KBVar.h"
 #include "EntityDef.h"
 #include "ScriptModule.h"
@@ -14,53 +14,53 @@ namespace KBEngine
 
 
 
-void AccountBase::onComponentsEnterworld()
+void ExAccountBase::onComponentsEnterworld()
 {
 }
 
-void AccountBase::onComponentsLeaveworld()
+void ExAccountBase::onComponentsLeaveworld()
 {
 }
 
-void AccountBase::onGetBase()
+void ExAccountBase::onGetBase()
 {
 	if(pBaseEntityCall)
 		delete pBaseEntityCall;
 
-	pBaseEntityCall = new EntityBaseEntityCall_AccountBase(id(), className());
+	pBaseEntityCall = new EntityBaseEntityCall_ExAccountBase(id(), className());
 }
 
-void AccountBase::onGetCell()
+void ExAccountBase::onGetCell()
 {
 	if(pCellEntityCall)
 		delete pCellEntityCall;
 
-	pCellEntityCall = new EntityCellEntityCall_AccountBase(id(), className());
+	pCellEntityCall = new EntityCellEntityCall_ExAccountBase(id(), className());
 }
 
-void AccountBase::onLoseCell()
+void ExAccountBase::onLoseCell()
 {
 	delete pCellEntityCall;
 	pCellEntityCall = NULL;
 }
 
-EntityCall* AccountBase::getBaseEntityCall()
+EntityCall* ExAccountBase::getBaseEntityCall()
 {
 	return pBaseEntityCall;
 }
 
-EntityCall* AccountBase::getCellEntityCall()
+EntityCall* ExAccountBase::getCellEntityCall()
 {
 	return pCellEntityCall;
 }
 
-void AccountBase::onRemoteMethodCall(MemoryStream& stream)
+void ExAccountBase::onRemoteMethodCall(MemoryStream& stream)
 {
 }
 
-void AccountBase::onUpdatePropertys(MemoryStream& stream)
+void ExAccountBase::onUpdatePropertys(MemoryStream& stream)
 {
-	ScriptModule* sm = *EntityDef::moduledefs.Find("Account");
+	ScriptModule* sm = *EntityDef::moduledefs.Find("ExAccount");
 
 	while(stream.length() > 0)
 	{
@@ -136,9 +136,9 @@ void AccountBase::onUpdatePropertys(MemoryStream& stream)
 	}
 }
 
-void AccountBase::callPropertysSetMethods()
+void ExAccountBase::callPropertysSetMethods()
 {
-	ScriptModule* sm = EntityDef::moduledefs["Account"];
+	ScriptModule* sm = EntityDef::moduledefs["ExAccount"];
 	TMap<uint16, Property*>& pdatas = sm->idpropertys;
 
 	FVector3f oldval_direction = direction;
@@ -185,14 +185,14 @@ void AccountBase::callPropertysSetMethods()
 
 }
 
-AccountBase::AccountBase():
+ExAccountBase::ExAccountBase():
 	Entity(),
 	pBaseEntityCall(NULL),
 	pCellEntityCall(NULL)
 {
 }
 
-AccountBase::~AccountBase()
+ExAccountBase::~ExAccountBase()
 {
 	if(pBaseEntityCall)
 		delete pBaseEntityCall;
@@ -202,11 +202,11 @@ AccountBase::~AccountBase()
 
 }
 
-void AccountBase::attachComponents()
+void ExAccountBase::attachComponents()
 {
 }
 
-void AccountBase::detachComponents()
+void ExAccountBase::detachComponents()
 {
 }
 
