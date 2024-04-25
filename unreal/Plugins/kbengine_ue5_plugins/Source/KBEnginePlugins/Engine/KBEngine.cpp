@@ -540,16 +540,17 @@ void KBEngineApp::Client_onHelloCB(MemoryStream& stream)
 		}
 		*/
 
-		if(serverEntitydefMD5_ != serverEntitydefMD5)
-		{
-			ERROR_MSG("KBEngineApp::Client_onHelloCB():  digest not match! serverEntitydefMD5=%s(server: %s)", *serverEntitydefMD5_, *serverEntitydefMD5);
-
-			UKBEventData_onVersionNotMatch* pEventData = NewObject<UKBEventData_onVersionNotMatch>();
-			pEventData->clientVersion = clientVersion_;
-			pEventData->serverVersion = serverVersion_;
-			KBENGINE_EVENT_FIRE(KBEventTypes::onVersionNotMatch, pEventData);
-			return;
-		}
+		// TODO 暂时忽略服务端与客户端的版本一致性检测
+		// if(serverEntitydefMD5_ != serverEntitydefMD5)
+		// {
+		// 	ERROR_MSG("KBEngineApp::Client_onHelloCB():  digest not match! serverEntitydefMD5=%s(server: %s)", *serverEntitydefMD5_, *serverEntitydefMD5);
+		//
+		// 	UKBEventData_onVersionNotMatch* pEventData = NewObject<UKBEventData_onVersionNotMatch>();
+		// 	pEventData->clientVersion = clientVersion_;
+		// 	pEventData->serverVersion = serverVersion_;
+		// 	KBENGINE_EVENT_FIRE(KBEventTypes::onVersionNotMatch, pEventData);
+		// 	return;
+		// }
 	}
 
 	if (pArgs_->networkEncryptType == NETWORK_ENCRYPT_TYPE::ENCRYPT_TYPE_BLOWFISH)
