@@ -6,6 +6,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "ExKbeGameMode.generated.h"
 
+class UKBEventData;
+
 /**
  * 绑定一些每个场景都会用到的回调事件
  */

@@ -12,4 +12,9 @@
 UCLASS()
 class KBE_API AExLoginController : public APlayerController {
 	GENERATED_BODY()
+public:
+	virtual void BeginPlay() override;
+public:
+	UPROPERTY(EditAnywhere)
+	FVector2D ScreenSize;
 };

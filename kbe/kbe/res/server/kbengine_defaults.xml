@@ -378,7 +378,7 @@
 			<!-- 账号Entity的名称
 			    (Name of AccountEntity)
 			 -->
-			<accountEntityScriptType>	Account	</accountEntityScriptType>
+			<accountEntityScriptType>	ExAccount	</accountEntityScriptType>
 			
 			<!-- 新账号默认标记(可组合，填写时按十进制格式) 
 				(Default flags a new account, Can be combined, Fill in decimal format when)
