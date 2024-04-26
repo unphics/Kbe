@@ -5,7 +5,7 @@
 
 mysql:
     数据库名称: kbe
-    用户名: kbeser
+    用户名: kbeuser
     密码: 123456
 
 mysql创建新账户与赋权操作:
@@ -21,12 +21,18 @@ mysql为course_asset操作:
     grant select,insert,update,delete,create,drop on kbecourse.* to kbeuser@localhost with grant option;
     flush privileges;
 
+mysql常见指令:
+    查看所有账户: SELECT user, host FROM mysql.user;
+    删除用户: DROP USER 'username'@'host';
+    查看database列表: SHOW DATABASES;
+    删除一个database: DROP DATABASE dbname;
+
 mysql ssl 问题:
     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
     flush privileges;
-    将mysql data目录的my.ini下增加
+    将mysql data目录的my.ini下[mysqld]后面增加
         # disable_ssl
-        skip-ssl
+        skip_ssl
         ssl=0
     重启mysql服务
     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
