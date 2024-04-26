@@ -33,4 +33,14 @@
             </Data>
         </Properties>
     </ROLE_INFO>
+
+    <!-- 角色信息，包括数据库ID、名字、角色类型、角色数据 -->
+    <ROLE_LIST> FIXED_DICT
+        <implementedBy> ROLE_INFO.ROLE_LIST_PICKLER</implementedBy>
+        <Properties>
+            <Value>
+                <Type> ARRAY <of>  </of> </Type>
+            </Value>
+        </Properties>
+    </ROLE_LIST>
 </root>
