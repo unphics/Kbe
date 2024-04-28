@@ -1,11 +1,39 @@
 # -*- coding: utf-8 -*-
 import KBEngine
 from KBEDebug import *
+from ROLE_DATA import TRoleData
+from ROLE_INFO import TRoleInfo, TRoleList
 
 class ExAccount(KBEngine.Proxy):
 	def __init__(self):
 		KBEngine.Proxy.__init__(self)
-		
+	def ReqRoleList(self):
+		"""
+		客户端请求角色列表
+		"""
+		DEBUG_MSG("ExAccount[%i].ReqRoleList: Size=%i,Data=%i" % (self.id, len(self.RoleList), self.RoleList))
+		# 直接发送角色列表给客户端
+		self.client.OnReqRoleList(self.RoleList)
+
+	def ReqCreateRole(self, RoleType, Name):
+		"""
+		客户端请求创建角色
+		:param RoleType: 角色类型
+		:param Name: 角色名字
+		"""
+		# 创建空的RoleInfo角色信息类, 用来给创建角色失败时作为创建角色回调函数的参数
+		RoleInfo = TRoleInfo()
+		RoleInfo.extend([0, Name, RoleType, TRoleData().createFromDict({"DataType": 0, "DataValue": b''})])
+
+		# 判断是否能创建角色
+
+	def ReqRemoveRole(self, Name):
+		"""
+		客户端请求删除角色
+		:param Name: 角色名字
+		"""
+		pass
+
 	def onTimer(self, id, userArg):
 		"""
 		KBEngine method.

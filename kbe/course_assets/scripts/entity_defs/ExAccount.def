@@ -1,11 +1,50 @@
 <root>
 	<Properties>
+		<RoleList>
+			<Type> ROLE_LIST </Type>
+			<Flags> BASE </Flags>
+			<Persistent> true </Persistent>
+		</RoleList>
+		<LastSelRole>
+			<Type> DBID </Type>
+			<Flags> BASE </Flags>
+			<Default> 0 </Default>
+			<Persistent> true </Persistent>
+		</LastSelRole>
 	</Properties>
 
 	<ClientMethods>
+		<!-- 请求角色列表回调 -->
+		<OnReqRoleList>
+			<Arg> ROLE_LIST </Arg>
+		</OnReqRoleList>
+		<!-- 请求创建角色回调 -->
+		<OnCreateRole>
+			<Arg> UINT8 </Arg> <!--结果-->
+			<Arg> ROLE_INFO </Arg> <!-- 角色信息 -->
+		</OnCreateRole>
+		<!-- 请求删除角色回调 -->
+		<OnRemoveRole>
+			<Arg> DBID </Arg>
+		</OnRemoveRole>
 	</ClientMethods>
 
 	<BaseMethods>
+		<!-- 客户端请求角色列表 -->
+		<ReqRoleList>
+			<Exposed/>
+		</ReqRoleList>
+		<!-- 客户端请求创建角色 -->
+		<ReqCreateRole>
+			<Exposed/>
+			<Arg> UINT8 </Arg> <!-- 角色类型RoleType -->
+			<Arg> UNICODE </Arg> <!-- 角色名字Name -->
+		</ReqCreateRole>
+		<!-- 客户端请求删除角色 -->
+		<ReqRemoveRole>
+			<Exposed/>
+			<Arg> UNICODE </Arg> <!-- 角色名字Name -->
+		</ReqRemoveRole>
 	</BaseMethods>
 
 	<CellMethods>
